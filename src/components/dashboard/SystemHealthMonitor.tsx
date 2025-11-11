@@ -117,29 +117,9 @@ export default function SystemHealthMonitor({
   };
 
   return (
-    <div className="relative bg-gray-900/60 backdrop-blur-xl border border-gray-700/80 rounded-2xl overflow-hidden p-6">
-      {/* Floating glowing robot background */}
-      <motion.img
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/files-blob/public/assets/bot_greenprint-H9JtPdDs77kivcY7EdoYWFriVul1yT.gif"
-        alt="Security Bot"
-        className="absolute right-4 bottom-0 w-40 md:w-64 opacity-30 pointer-events-none select-none"
-        animate={{
-          y: [0, -6, 0],
-          filter: [
-            "drop-shadow(0 0 8px rgba(0,255,0,0.6))",
-            "drop-shadow(0 0 16px rgba(0,255,0,0.9))",
-            "drop-shadow(0 0 8px rgba(0,255,0,0.6))",
-          ],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      {/* Content overlay */}
-      <div className="relative z-10">
+    <div className="relative bg-gray-900/60 backdrop-blur-xl border border-gray-700/80 rounded-2xl overflow-hidden p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      {/* Left side: content */}
+      <div className="flex-1 relative z-10">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-xl font-bold text-green-400 tracking-wide">
@@ -171,13 +151,7 @@ export default function SystemHealthMonitor({
                 className="transition-all duration-500"
               />
               <defs>
-                <linearGradient
-                  id="healthGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="0%"
-                >
+                <linearGradient id="healthGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop
                     offset="0%"
                     stopColor={
@@ -281,6 +255,26 @@ export default function SystemHealthMonitor({
           </div>
         </div>
       </div>
+
+      {/* Right side: prominent animated robot */}
+      <motion.img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/files-blob/public/assets/bot_greenprint-H9JtPdDs77kivcY7EdoYWFriVul1yT.gif"
+        alt="Security Bot"
+        className="w-40 md:w-64 opacity-80 pointer-events-none select-none md:mr-6 self-center"
+        animate={{
+          y: [0, -8, 0],
+          filter: [
+            "drop-shadow(0 0 6px rgba(0,255,0,0.6))",
+            "drop-shadow(0 0 14px rgba(0,255,0,0.9))",
+            "drop-shadow(0 0 6px rgba(0,255,0,0.6))",
+          ],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
     </div>
   );
 }
